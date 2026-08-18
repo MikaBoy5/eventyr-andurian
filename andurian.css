@@ -1221,7 +1221,7 @@
 }
 
 .ev-text-image > div:first-child:has(> .ev-image-frame),
-.ev-text-image.reverse > div:first-child:has(> .ev-image-frame),
+.ev.text-image.reverse > div:first-child:has(> .ev-image-frame),
 .ev-region-page > div:first-child:has(> .ev-image-frame),
 .ev-region-page.reverse > div:first-child:has(> .ev-image-frame),
 .ev-government-layout > div:first-child:has(> .ev-image-frame),
@@ -2483,8 +2483,8 @@
     .ev-region-meta{
         width:min(100%,36rem);
 
-        margin-left:auto!important;
-        margin-right:auto!important;
+        margin-left:auto;
+        margin-right:auto;
     }
 
     .ev-intro-heraldry{
@@ -2513,7 +2513,7 @@
     .ev-text-image > div:has(> .ev-image-frame),
     .ev.text-image.reverse > div:has(> .ev-image-frame),
     .ev-region-page > div:has(> .ev-image-frame),
-    .ev-region-page.reverse > div:has(> .ev-image-frame),
+    .ev.region-page.reverse > div:has(> .ev-image-frame),
     .ev-government-layout > div:has(> .ev-image-frame),
     .ev-economy-intro > div:has(> .ev-image-frame),
     .ev-culture-layout > div:has(> .ev-image-frame),
@@ -2559,21 +2559,22 @@
     .ev-book-wrap{
         position:relative;
 
-        width:100vw;
-        max-width:100vw;
-        min-width:100vw;
+        width:100%;
+        max-width:100%;
+        min-width:0;
 
         min-height:100svh;
         min-height:100dvh;
 
         height:auto;
 
-        margin-left:calc(50% - 50vw);
-        margin-right:calc(50% - 50vw);
+        margin-left:0;
+        margin-right:0;
 
         padding:0;
 
-        overflow:visible;
+        overflow-x:hidden;
+        overflow-y:visible;
 
         transform:none!important;
     }
@@ -2581,9 +2582,9 @@
     .ev-book{
         position:relative;
 
-        width:100vw;
-        max-width:100vw;
-        min-width:100vw;
+        width:100%;
+        max-width:100%;
+        min-width:0;
 
         height:auto;
 
@@ -2593,7 +2594,8 @@
         margin:0;
         padding:0;
 
-        overflow:visible;
+        overflow-x:hidden;
+        overflow-y:visible;
 
         --ev-scale:1;
         --ev-type-scale:1;
@@ -2604,9 +2606,9 @@
     .ev-pages{
         position:relative;
 
-        width:100vw;
-        max-width:100vw;
-        min-width:100vw;
+        width:100%;
+        max-width:100%;
+        min-width:0;
 
         height:auto;
         min-height:0;
@@ -2614,7 +2616,8 @@
         margin:0;
         padding:0;
 
-        overflow:visible;
+        overflow-x:hidden;
+        overflow-y:visible;
     }
 
     .ev-page{
@@ -2625,8 +2628,8 @@
 
         box-sizing:border-box;
 
-        width:100vw;
-        max-width:100vw;
+        width:100%;
+        max-width:100%;
         min-width:0;
 
         height:auto;
@@ -2643,7 +2646,7 @@
         transform:none!important;
         transform-origin:center top;
 
-        overflow:visible;
+        overflow:hidden;
 
         opacity:0;
         visibility:hidden;
@@ -2697,8 +2700,8 @@
         top:auto;
         left:auto;
 
-        width:100vw;
-        max-width:100vw;
+        width:100%;
+        max-width:100%;
         min-width:0;
 
         height:auto;
@@ -3077,11 +3080,6 @@
         margin-right:auto!important;
     }
 
-    .ev-region-side .ev-caption{
-        width:100%!important;
-        text-align:center!important;
-    }
-
     .ev-page.ev-p10 .ev-text-image{
         display:grid!important;
 
@@ -3163,7 +3161,9 @@
     }
 
     .ev-cover{
-        width:100vw;
+        width:100%;
+        max-width:100%;
+        min-width:0;
 
         min-height:100svh;
         min-height:100dvh;
@@ -3194,7 +3194,9 @@
     }
 
     .ev-chapter{
-        width:100vw;
+        width:100%;
+        max-width:100%;
+        min-width:0;
 
         min-height:100svh;
         min-height:100dvh;
@@ -3654,4 +3656,193 @@
 .ev-history-copy{
     overflow-wrap:break-word;
     word-wrap:break-word;
+}
+
+/* =========================================================
+   COMPATIBILIDAD FOROACTIVO
+   CORRECCIÓN DE DESBORDAMIENTO
+   ========================================================= */
+
+.ev-book-wrap{
+    display:block;
+
+    width:100%;
+    max-width:100%;
+    min-width:0;
+
+    margin-left:0;
+    margin-right:0;
+
+    overflow-x:hidden;
+}
+
+.ev-book{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+
+    margin-left:0;
+    margin-right:0;
+
+    overflow-x:hidden;
+}
+
+.ev-pages{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+
+    overflow-x:hidden;
+}
+
+/* =========================================================
+   MÓVIL — AISLAMIENTO DEL CONTENEDOR
+   ========================================================= */
+
+@media(
+    max-width:620px
+),
+(
+    max-width:1100px
+) and (
+    hover:none
+) and (
+    pointer:coarse
+){
+
+    .ev-book-wrap{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+
+        margin-left:0;
+        margin-right:0;
+
+        padding:0;
+
+        overflow-x:hidden;
+        overflow-y:visible;
+    }
+
+    .ev-book{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+
+        margin:0;
+        padding:0;
+
+        overflow-x:hidden;
+        overflow-y:visible;
+    }
+
+    .ev-pages{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+
+        height:auto;
+
+        overflow-x:hidden;
+        overflow-y:visible;
+    }
+
+    /* =====================================================
+       PÁGINAS
+       ===================================================== */
+
+    .ev-page{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+
+        overflow:hidden;
+    }
+
+    .ev-book-toggle[id="ev-p01"]:checked ~ .ev-pages .ev-p01,
+    .ev-book-toggle[id="ev-p02"]:checked ~ .ev-pages .ev-p02,
+    .ev-book-toggle[id="ev-p03"]:checked ~ .ev-pages .ev-p03,
+    .ev-book-toggle[id="ev-p04"]:checked ~ .ev-pages .ev-p04,
+    .ev-book-toggle[id="ev-p05"]:checked ~ .ev-pages .ev-p05,
+    .ev-book-toggle[id="ev-p06"]:checked ~ .ev-pages .ev-p06,
+    .ev-book-toggle[id="ev-p07"]:checked ~ .ev-pages .ev-p07,
+    .ev-book-toggle[id="ev-p08"]:checked ~ .ev-pages .ev-p08,
+    .ev-book-toggle[id="ev-p09"]:checked ~ .ev-pages .ev-p09,
+    .ev-book-toggle[id="ev-p10"]:checked ~ .ev-pages .ev-p10,
+    .ev-book-toggle[id="ev-p11"]:checked ~ .ev-pages .ev-p11,
+    .ev-book-toggle[id="ev-p12"]:checked ~ .ev-pages .ev-p12,
+    .ev-book-toggle[id="ev-p13"]:checked ~ .ev-pages .ev-p13,
+    .ev-book-toggle[id="ev-p14"]:checked ~ .ev-pages .ev-p14,
+    .ev-book-toggle[id="ev-p15"]:checked ~ .ev-pages .ev-p15,
+    .ev-book-toggle[id="ev-p16"]:checked ~ .ev-pages .ev-p16,
+    .ev-book-toggle[id="ev-p17"]:checked ~ .ev-pages .ev-p17,
+    .ev-book-toggle[id="ev-p18"]:checked ~ .ev-pages .ev-p18,
+    .ev-book-toggle[id="ev-p19"]:checked ~ .ev-pages .ev-p19,
+    .ev-book-toggle[id="ev-p20"]:checked ~ .ev-pages .ev-p20,
+    .ev-book-toggle[id="ev-p21"]:checked ~ .ev-pages .ev-p21,
+    .ev-book-toggle[id="ev-p22"]:checked ~ .ev-pages .ev-p22,
+    .ev-book-toggle[id="ev-p23"]:checked ~ .ev-pages .ev-p23,
+    .ev-book-toggle[id="ev-p24"]:checked ~ .ev-pages .ev-p24,
+    .ev-book-toggle[id="ev-p25"]:checked ~ .ev-pages .ev-p25,
+    .ev-book-toggle[id="ev-p26"]:checked ~ .ev-pages .ev-p26,
+    .ev-book-toggle[id="ev-p27"]:checked ~ .ev-pages .ev-p27,
+    .ev-book-toggle[id="ev-p28"]:checked ~ .ev-pages .ev-p28,
+    .ev-book-toggle[id="ev-p29"]:checked ~ .ev-pages .ev-p29,
+    .ev-book-toggle[id="ev-p30"]:checked ~ .ev-pages .ev-p30,
+    .ev-book-toggle[id="ev-p31"]:checked ~ .ev-pages .ev-p31,
+    .ev-book-toggle[id="ev-p32"]:checked ~ .ev-pages .ev-p32,
+    .ev-book-toggle[id="ev-p33"]:checked ~ .ev-pages .ev-p33,
+    .ev-book-toggle[id="ev-p34"]:checked ~ .ev-pages .ev-p34,
+    .ev-book-toggle[id="ev-p35"]:checked ~ .ev-pages .ev-p35,
+    .ev-book-toggle[id="ev-p36"]:checked ~ .ev-pages .ev-p36,
+    .ev-book-toggle[id="ev-p37"]:checked ~ .ev-pages .ev-p37,
+    .ev-book-toggle[id="ev-p38"]:checked ~ .ev-pages .ev-p38,
+    .ev-book-toggle[id="ev-p39"]:checked ~ .ev-pages .ev-p39,
+    .ev-book-toggle[id="ev-p40"]:checked ~ .ev-pages .ev-p40,
+    .ev-book-toggle[id="ev-p41"]:checked ~ .ev-pages .ev-p41{
+
+        width:100%;
+        max-width:100%;
+        min-width:0;
+
+        overflow:visible;
+    }
+
+    /* =====================================================
+       PORTADA
+       ===================================================== */
+
+    .ev-cover{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+    }
+
+    /* =====================================================
+       CAPÍTULOS
+       ===================================================== */
+
+    .ev-chapter{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+    }
+}
+
+/* =========================================================
+   TELÉFONOS MUY ESTRECHOS — AISLAMIENTO FINAL
+   ========================================================= */
+
+@media(max-width:380px){
+
+    .ev-book-wrap,
+    .ev-book,
+    .ev-pages,
+    .ev-page,
+    .ev-cover,
+    .ev-chapter{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+    }
 }
