@@ -1,4 +1,3 @@
-<meta charset="UTF-8">
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&display=swap');
 
 .ev-book-wrap{
@@ -34,10 +33,6 @@
 }
 
 .ev-book{
-    /* =====================================================
-       ESCALA GENERAL
-       ===================================================== */
-
     --ev-base-w:100rem;
     --ev-base-h:60rem;
 
@@ -633,7 +628,7 @@
     align-items:start;
 }
 
-.ev.text-image.reverse{
+.ev-text-image.reverse{
     grid-template-columns:
         minmax(0,.95fr)
         minmax(0,1.05fr);
@@ -1226,7 +1221,7 @@
 }
 
 .ev-text-image > div:first-child:has(> .ev-image-frame),
-.ev.text-image.reverse > div:first-child:has(> .ev-image-frame),
+.ev-text-image.reverse > div:first-child:has(> .ev-image-frame),
 .ev-region-page > div:first-child:has(> .ev-image-frame),
 .ev-region-page.reverse > div:first-child:has(> .ev-image-frame),
 .ev-government-layout > div:first-child:has(> .ev-image-frame),
@@ -2561,10 +2556,6 @@
     pointer:coarse
 ){
 
-    /* =====================================================
-       CONTENEDOR
-       ===================================================== */
-
     .ev-book-wrap{
         position:relative;
 
@@ -2586,10 +2577,6 @@
 
         transform:none!important;
     }
-
-    /* =====================================================
-       LIBRO
-       ===================================================== */
 
     .ev-book{
         position:relative;
@@ -2613,10 +2600,6 @@
 
         transform:none!important;
     }
-
-    /* =====================================================
-       PÁGINAS
-       ===================================================== */
 
     .ev-pages{
         position:relative;
@@ -2666,10 +2649,6 @@
         visibility:hidden;
         pointer-events:none;
     }
-
-    /* =====================================================
-       PÁGINA ACTIVA
-       ===================================================== */
 
     .ev-book-toggle[id="ev-p01"]:checked ~ .ev-pages .ev-p01,
     .ev-book-toggle[id="ev-p02"]:checked ~ .ev-pages .ev-p02,
@@ -2744,27 +2723,15 @@
         z-index:5;
     }
 
-    /* =====================================================
-       MARCO
-       ===================================================== */
-
     .ev-page:before{
         inset:.5rem;
     }
-
-    /* =====================================================
-       CONTENIDO INTERNO
-       ===================================================== */
 
     .ev-page-inner{
         width:100%;
         max-width:none;
         min-width:0;
     }
-
-    /* =====================================================
-       TEXTO PRINCIPAL
-       ===================================================== */
 
     .ev-prose,
     .ev-region-copy,
@@ -2813,10 +2780,6 @@
         line-height:1.55;
     }
 
-    /* =====================================================
-       TÍTULOS
-       ===================================================== */
-
     .ev-page-title{
         font-size:5rem;
         line-height:1.08;
@@ -2847,10 +2810,6 @@
         font-size:3.25rem;
         line-height:1.15;
     }
-
-    /* =====================================================
-       SUBTÍTULOS Y ENCABEZADOS SECUNDARIOS
-       ===================================================== */
 
     .ev-kicker,
     .ev-region-kicker,
@@ -2884,10 +2843,6 @@
         line-height:1.6;
     }
 
-    /* =====================================================
-       DATOS, ETIQUETAS Y CAMPOS
-       ===================================================== */
-
     .ev-region-meta-item strong,
     .ev-data-label,
     .ev-fact-list strong,
@@ -2918,10 +2873,6 @@
         gap:.75rem;
     }
 
-    /* =====================================================
-       CAPTIONS
-       ===================================================== */
-
     .ev-caption,
     .ev-heraldry-caption{
         font-size:1.35rem;
@@ -2935,10 +2886,6 @@
         font-size:2.5rem;
         line-height:1.6;
     }
-
-    /* =====================================================
-       COLUMNAS → UNA SOLA COLUMNA
-       ===================================================== */
 
     .ev-columns,
     .ev-text-image,
@@ -2969,10 +2916,6 @@
 
         min-width:0;
     }
-
-    /* =====================================================
-       CORRECCIÓN GENERAL DE CONTENEDORES DE IMAGEN
-       ===================================================== */
 
     .ev-text-image > div:has(> .ev-image-frame),
     .ev-region-page > div:has(> .ev-image-frame),
@@ -3008,10 +2951,6 @@
 
         padding:0!important;
     }
-
-    /* =====================================================
-       CORRECCIÓN ESPECÍFICA — TERRITORIO E IDENTIDAD
-       ===================================================== */
 
     .ev-page.ev-p05 .ev-region-page{
         display:grid!important;
@@ -3061,10 +3000,6 @@
         text-align:center!important;
     }
 
-    /* =====================================================
-       IMÁGENES — MÁS GRANDES
-       ===================================================== */
-
     .ev-image-frame.standard{
         width:100%!important;
         max-width:none!important;
@@ -3110,10 +3045,6 @@
         aspect-ratio:21/8;
     }
 
-    /* =====================================================
-       REGIONES
-       ===================================================== */
-
     .ev-region-side{
         width:100%!important;
         max-width:none!important;
@@ -3151,10 +3082,6 @@
         text-align:center!important;
     }
 
-    /* =====================================================
-       DINASTÍA
-       ===================================================== */
-
     .ev-page.ev-p10 .ev-text-image{
         display:grid!important;
 
@@ -3189,10 +3116,6 @@
         margin:0 auto;
     }
 
-    /* =====================================================
-       MONEDA
-       ===================================================== */
-
     .ev-page.ev-p20 .ev-economy-intro > div:first-child:has(> .ev-image-frame){
         width:100%!important;
         max-width:none!important;
@@ -3209,10 +3132,6 @@
 
         height:30rem;
     }
-
-    /* =====================================================
-       PRÓLOGO
-       ===================================================== */
 
     .ev-intro-layout{
         grid-template-columns:1fr!important;
@@ -3242,10 +3161,6 @@
 
         margin:0 auto;
     }
-
-    /* =====================================================
-       PORTADA
-       ===================================================== */
 
     .ev-cover{
         width:100vw;
@@ -3278,10 +3193,6 @@
         font-size:1.25rem;
     }
 
-    /* =====================================================
-       CAPÍTULOS
-       ===================================================== */
-
     .ev-chapter{
         width:100vw;
 
@@ -3312,10 +3223,6 @@
         line-height:1.7;
     }
 
-    /* =====================================================
-       FOOTER
-       ===================================================== */
-
     .ev-footer{
         position:relative;
 
@@ -3344,10 +3251,6 @@
         max-width:55%;
         padding:.25rem .375rem;
     }
-
-    /* =====================================================
-       NAVEGACIÓN TÁCTIL
-       ===================================================== */
 
     .ev-hit{
         position:fixed;
